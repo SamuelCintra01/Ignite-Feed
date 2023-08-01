@@ -6,6 +6,45 @@ import styles from "./app.module.css";
 
 import "./global.css";
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://github.com/SamuelCintra01.png",
+      name: "Samuel Cintra",
+      role: "Desenvolvedor Web",
+    },
+    content: [
+      { type: "pharagraph", content: "Fala galeraa 👋" },
+      {
+        type: "pharagraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
+      },
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publishedAt: new Date("2023-07-24 16:00:00"),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/SamuelCintra01.png",
+      name: "Rafael Cintra",
+      role: "Desenvolvedor Front-End",
+    },
+    content: [
+      { type: "pharagraph", content: "Fala galeraa 👋" },
+      {
+        type: "pharagraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
+      },
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publishedAt: new Date("2023-07-25 17:00:00"),
+  },
+];
+
 export function App() {
   return (
     <div>
@@ -13,14 +52,16 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Samuel Cintra"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores cum quia minima a repudiandae blanditiis."
-          />
-          <Post
-            author="Samuel Cintra"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolores cum quia minima a repudiandae blanditiis."
-          />
+          {posts.map((post) => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
