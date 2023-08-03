@@ -12,7 +12,9 @@ export function Comment({ content, onDeleteComment }) {
   }
 
   function handleLikeComment() {
-    setLikeCount(likeCount + 1);
+    setLikeCount((state) => {
+      return state + 1;
+    });
   }
 
   return (
@@ -36,7 +38,6 @@ export function Comment({ content, onDeleteComment }) {
               <Trash size={24} />
             </button>
           </header>
-
           <p>{content} </p>
         </div>
 
