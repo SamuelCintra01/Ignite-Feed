@@ -57,7 +57,6 @@ export function App() {
         <Sidebar />
         <main>
           {posts.map((post) => {
-            console.log("Teste", post.content);
             return (
               <Post
                 key={post.id}
